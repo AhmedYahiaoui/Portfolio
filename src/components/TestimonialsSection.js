@@ -4,7 +4,8 @@ import { MdArrowForward, MdArrowBack } from 'react-icons/md';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import PText from './PText';
 import SectionTitle from './SectionTitle';
-import testimonials from '../assets/data/testimonials';
+
+import localTestimonials from '../assets/data/testimonials';
 
 const TestimonialSectionStyles = styled.div`
   overflow-x: hidden;
@@ -81,8 +82,15 @@ const TestimonialSectionStyles = styled.div`
 `;
 
 export default function TestimonialsSection() {
+
+  const {testimonials} = window;
   const [activeIndex, setActiveIndex] = useState(0);
-  const activeSlide = testimonials[activeIndex];
+  let activeSlide;
+  if(testimonials.length < 1){
+     activeSlide = localTestimonials[activeIndex];
+  }else{
+     activeSlide = (testimonials[activeIndex]).data;
+  }
 
   function handleNext() {
     if (activeIndex >= testimonials.length - 1) {
@@ -109,11 +117,12 @@ export default function TestimonialsSection() {
         <h3>From fiverr and Upwork </h3>
 
         <div className="testimonial__wrapper">
+
           <SwitchTransition component={null}>
             <CSSTransition key={activeSlide.id} timeout={300} classNames="fade">
               <div className="testimonial__info">
                 <div className="testimonial__desc">
-                  <PText>{activeSlide.desc}</PText>
+                  <PText>{activeSlide.description}</PText>
                 </div>
                 <h2 className="testimonial__name">{activeSlide.name}</h2>
               </div>

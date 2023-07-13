@@ -1,4 +1,6 @@
-import React from 'react';
+
+/* eslint-disable camelcase */
+import React, {  useState } from 'react';
 import styled from 'styled-components';
 import PText from '../components/PText';
 import Button from '../components/Button';
@@ -74,6 +76,17 @@ const AboutPageStyles = styled.div`
 `;
 
 export default function About() {
+  const {firstname,lastname,about_me_title,about_me_p1,about_me_p2,about_me_p3,about_me_p4,cv_fr_link,cv_eng_link,}=window.profile;
+  const experience = window.experiences;;
+  let [experiences, setExperiences] = useState([])
+  
+  useState(() => {
+    if(experience.length >1){
+      experiences = experience.sort((a, b) => a.data.order > b.data.order);
+      setExperiences(experiences);
+    }
+  },[]);
+
   return (
     <>
       <AboutPageStyles>
@@ -81,34 +94,24 @@ export default function About() {
           <div className="top-section">
             <div className="left">
               <p className="about__subheading">
-                Hi, I am <span>AHMED YAHYAOUI</span>
+                Hi, I am <span>{firstname} {lastname}</span>
               </p>
-              <h2 className="about__heading">A freelance Web developer</h2>
+              <h2 className="about__heading">{about_me_title}</h2>
               <div className="about__info">
                 <PText>
-                  I am a software engineer specialized in full stack development
-                  and UI design graduated in December 2020 from Tunis, Tunisia.
-                  <br /> <br />
-                  Now! I am a freelance web, mobile and desktop application designer and developer.
-                  Looking for new opportunities as CDI contract, CDD or mission .
-                  A place of beauty and nature. Since my childhood, i love art 
-                  and design. I always
-                  try to design stuff with my unique point of view. I also love
-                  to create things that can be usefull to others.
-                  <br /> <br />
-                  I started coding since I was in high school. Coding is also an
-                  art for me. I love it and now I have the opportunity to design
-                  along with the coding. I find it really interesting and I
-                  enjoyed the process a lot.
-                  <br />
-                  <br />
-                  My vision is to make the world a better place. Now almost
-                  everything is becoming better than ever. It is time for us to
-                  create more good stuff that helps the world to become a better
-                  place.
+                  {about_me_p1}
+                  <br /><br />
+                  {about_me_p2}
+                  <br /><br />
+                  {about_me_p3}
+                  <br /><br />
+                  {about_me_p4}
                 </PText>
               </div>
-              <Button btnText="Download CV" btnLink="#" />
+              <row>
+                <Button btnText="Download FR C.V" btnLink={cv_fr_link} />
+                <Button btnText="Download ENG C.V" btnLink={cv_eng_link} />
+              </row>
             </div>
             <div className="right">
               <img src={AboutImg} alt="me" />
@@ -117,8 +120,6 @@ export default function About() {
           <div className="about__info__items">
             <div className="about__info__item">
               <h1 className="about__info__heading">Education</h1>
-
-
               <AboutInfoItem
                 title="Technician"
                 items={['The Higher Institute of Technological Studies (ISET)']}
@@ -128,10 +129,8 @@ export default function About() {
                 title="Engineering"
                 items={['Private Higher school of engineering and technology (ESPRIT)']}
               />
-
-
-
             </div>
+
             <div className="about__info__item">
               <h1 className="about__info__heading">My Skills</h1>
 
@@ -164,22 +163,19 @@ export default function About() {
                 items={['Adobe XD', 'Figma']}
               />
             </div>
+
             <div className="about__info__item">
               <h1 className="about__info__heading">Experiences</h1>
 
-              <AboutInfoItem
-                title="2020-2021"
-                items={['Student Freelance Developer']}
-              />
-              <AboutInfoItem
-                title="Jan -> Jun 2021"
-                items={['junior full stack developer at Brainy Concept']}
-              />
-              <AboutInfoItem
-                title="2021 ->"
-                items={['junior Backend developer at OctaSoft']}
+              {experiences
+              .map((exp) => 
+                  <AboutInfoItem
+                  key={exp.data.createdDate}
+                  title={exp.data.year}
+                  items={[exp.data.title]}
+                />
+              )}
 
-              />
             </div>
           </div>
         </div>
@@ -188,3 +184,5 @@ export default function About() {
     </>
   );
 }
+
+

@@ -1,10 +1,11 @@
-import React from 'react';
+
+import React from 'react'
 import styled from 'styled-components';
 import HeroImg from '../assets/images/hero.png';
 import Button from './Button';
 import SocialMediaArrow from '../assets/images/social-media-arrow.svg';
 import ScrollDownArrow from '../assets/images/scroll-down-arrow.svg';
-import PText from './PText';
+
 
 const HeroStyles = styled.div`
   .hero {
@@ -62,7 +63,7 @@ const HeroStyles = styled.div`
   .hero__scrollDown {
     width: 50px;
     p {
-      font-size: 1.6rem;
+      fontSize: 1.6rem; /* Change font-size to fontSize */
       transform: translateY(-70px) rotate(90deg);
       letter-spacing: 0.7rem;
       text-transform: uppercase;
@@ -147,40 +148,28 @@ const HeroStyles = styled.div`
   }
 `;
 
+
 export default function HeroSection() {
+
+ const {firstname,lastname,description,fbLink,igLink,githubLink,linkedinLink} = window.profile;
+
   return (
     <HeroStyles>
-      <div className="hero">
-        <div className="container">
+      <div className="hero" >
+        <div className="container" >
           <h1 className="hero__heading">
             <span>Hello, This is</span>
-            <span className="hero__name">Ahmed Yahyaoui</span>
+            <span className="hero__name">{firstname} {lastname}</span>
           </h1>
           <div className="hero__img">
             <img src={HeroImg} alt="" />
           </div>
           <div className="hero__info">
-
-
-              <div>
-
-                <p style={{ 'font-family': 'Montserrat SemiBold' ,'font-size': '20px', 'color':'var(--white)', 'text-align':'center', 'padding-top':'50px;' }} >
-                Now! I am working as a freelance web, mobile and desktop designer and developer for 1 year
-                </p>
-                </div>
-
-                <div>
-                <p style={{ 'font-family': 'Montserrat SemiBold' ,'font-size': '18px', 'color':'var(--white)', 'text-align':'center', 'padding-top':'50px;' }} >
-                I love to design and make new technologies experiences for the people.
-                </p>
-
-
-
-              </div>
-
-
-
-
+            <div>
+              <p style={{ 'font-family': 'Montserrat SemiBold' ,'font-size': '20px', 'color':'var(--white)', 'text-align':'center', 'padding-top':'50px;' }} >
+                {description}
+              </p>
+            </div>
             <Button btnText="see my works" btnLink="/projects" />
           </div>
           <div className="hero__social">
@@ -189,10 +178,11 @@ export default function HeroSection() {
               <img src={SocialMediaArrow} alt="icon" />
             </div>
             <div className="hero__social__text">
+              
               <ul>
                 <li>
                   <a
-                    href="https://www.facebook.com/Ahmed.yahyawii"
+                    href={fbLink}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -201,7 +191,7 @@ export default function HeroSection() {
                 </li>
                 <li>
                   <a
-                    href="https://github.com/AhmedYahiaoui"
+                    href={githubLink}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -210,7 +200,7 @@ export default function HeroSection() {
                 </li>
                 <li>
                   <a
-                    href="https://www.instagram.com/yahiaouii_ahmed"
+                    href={igLink}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -219,7 +209,7 @@ export default function HeroSection() {
                 </li>
                 <li>
                   <a
-                    href="https://www.linkedin.com/in/ahmed-yahyaoui-b26191b1/"
+                    href={linkedinLink}
                     target="_blank"
                     rel="noreferrer"
                   >

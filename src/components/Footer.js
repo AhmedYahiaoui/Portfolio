@@ -53,15 +53,14 @@ const FooterStyle = styled.div`
 `;
 
 export default function Footer() {
+  const {firstname,lastname,phone,email,location,fbLink,githubLink, linkedinLink,igLink} = window.profile;
   return (
     <FooterStyle>
       <div className="container">
         <div className="footer__col1">
-          <h1 className="footer__col1__title">Ahmed Yahyaoui</h1>
+          <h1 className="footer__col1__title">{firstname} {lastname}</h1>
           <PText>
-            I am a software engineer specialized in full stack development.
-            Now! I am a freelance web, mobile and desktop application designer and developer.
-            I create professional content. I love art and I always try to show unique views to the audience through my design.
+            {window.profile.about}
           </PText>
         </div>
         <div className="footer__col2">
@@ -96,16 +95,16 @@ export default function Footer() {
             heading="Contact Info"
             links={[
               {
-                title: '+216 50 77 90 17',
-                path: 'tel:+216 50 77 90 17',
+                title: phone,
+                path: 'tel:',
               },
               {
-                title: 'ahmed.yahyaoui.2@esprit.tn',
+                title: email,
                 path: 'mailto:ahmed.yahyaoui.2@esprit.tn',
               },
               {
-                title: 'Tunis , Tunisia',
-                path: 'https://www.google.com/maps/place/Tunis/@36.8068464,10.175792,14.92z/data=!4m5!3m4!1s0x12fd337f5e7ef543:0xd671924e714a0275!8m2!3d36.8065015!4d10.1815367',
+                title: location,
+                path: 'https://www.google.com/maps/@48.8603119,2.3391776,13.26z',
               },
             ]}
           />
@@ -116,19 +115,19 @@ export default function Footer() {
             links={[
               {
                 title: 'Facebook',
-                path: 'https://www.facebook.com/Ahmed.yahyawii/',
+                path: fbLink,
               },
               {
                 title: 'LinkedIn',
-                path: 'https://www.linkedin.com/in/ahmed-yahyaoui-b26191b1/',
+                path: linkedinLink,
               },
               {
                 title: 'Instagram',
-                path: 'https://www.instagram.com/yahiaouii_ahmed/',
+                path: igLink,
               },
               {
                 title: 'GitHub',
-                path: 'https://github.com/AhmedYahiaoui',
+                path: githubLink,
               },
             ]}
           />
@@ -137,7 +136,7 @@ export default function Footer() {
       <div className="copyright">
         <div className="container">
           <PText>
-            © 2021 - Ahmed yahyaoui | By 'Black Hummer'
+            © 2021 - {window.profile.firstname} {window.profile.lastname} | By 'Black Hummer'
           </PText>
         </div>
       </div>

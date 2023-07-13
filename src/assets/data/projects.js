@@ -7,7 +7,6 @@ import usmart from '../images/usmart.PNG';
 import eshop from '../images/eshop.PNG';
 import conf from '../images/conf.jpg';
 
-import ProjectImg from '../images/projectImg.png';
 import CoinTrackerImg from '../images/cointracker.jpg';
 import CavinImg from '../images/cavinimg.jpg';
 

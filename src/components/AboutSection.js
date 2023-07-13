@@ -80,9 +80,7 @@ export default function AboutSection() {
             heading="About Me"
           />
           <PText>
-          I am a software engineer specialized in full stack development and UI design graduated in December 2020 from Tunis, Tunisia.
-          Now! I am a freelance web, mobile and desktop application designer and developer.
-          I create professional content. I love art and I always try to show unique views to the audience through my design.
+            {window.profile.about}
           </PText>
           <div className="aboutSection__buttons">
             <Button btnText="Works" btnLink="/projects" />

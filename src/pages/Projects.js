@@ -46,8 +46,21 @@ const ProjectStyle = styled.div`
 `;
 
 export default function Projects() {
+  const {projects} = window;
+  const initialvalues = {
+      id: '',
+      description: '',
+      github_link: '',
+      title: '',
+      tech: [],
+      subtitle:'',
+      image_cover:''
+  };
+  const [projectss, setProjectss] = useState([initialvalues]);
+
   const [searchText, setSearchText] = useState('');
   const [projectsData, setProjectsData] = useState(ProjectsInfo);
+
   useEffect(() => {
     if (searchText === '') return;
     setProjectsData(() =>
@@ -55,7 +68,11 @@ export default function Projects() {
         item.name.toLowerCase().match(searchText.toLowerCase())
       )
     );
+    setProjectss(projects);
+
+
   }, [searchText]);
+
   const handleChange = (e) => {
     e.preventDefault();
     setSearchText(e.target.value);
@@ -63,6 +80,7 @@ export default function Projects() {
       setProjectsData(ProjectsInfo);
     }
   };
+
   return (
     <>
       <ProjectStyle>
@@ -83,15 +101,20 @@ export default function Projects() {
             </form>
           </div>
           <div className="projects__allItems">
-            {projectsData.map((item) => (
-              <ProjectItem
-                key={item.id}
-                title={item.name}
-                desc={item.desc}
-                img={item.img}
-                desc2={item.desc2}
-                link={item.link}
-              />
+            {projects
+              .sort((a, b) => a.data.order - b.data.order) // Sort the projects based on the order property
+              .map((item) => (
+                <div key={item.data.id}>
+                  <ProjectItem
+                    key={item.data.id}
+                    id={item.data.id}
+                    title={item.data.title}
+                    desc={item.data.description}
+                    img={item.data.image_cover}
+                    desc2={item.data.desc2}
+                    githubLink={item.data.github_link}
+                  />
+                </div>
             ))}
           </div>
         </div>

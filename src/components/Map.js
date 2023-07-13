@@ -44,15 +44,17 @@ const MapStyles = styled.div`
 `;
 
 export default function Map() {
+  const {location,} = window.profile;
+
   return (
     <MapStyles>
       <div className="container">
         <div className="map__card">
           <h3 className="map__card__heading">Here is me</h3>
-          <PText>Tunis , Tunisia</PText>
+          <PText>{location}</PText>
           <a
             className="map__card__link"
-            href="https://www.google.com/maps/place/Tunis/@36.8068464,10.175792,14.92z/data=!4m5!3m4!1s0x12fd337f5e7ef543:0xd671924e714a0275!8m2!3d36.8065015!4d10.1815367"
+            href="https://www.google.com/maps/@48.8603119,2.3391776,13.26z"
             target="_blank"
             rel="noreferrer"
           >
@@ -60,7 +62,6 @@ export default function Map() {
           </a>
         </div>
       </div>
-      {/* <img src={MapImg} alt="Map" /> */}
     </MapStyles>
   );
 }

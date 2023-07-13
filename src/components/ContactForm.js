@@ -39,10 +39,19 @@ const FormStyle = styled.form`
   }
 `;
 
+
 export default function ContactForm() {
+  const {email} = window.profile;
+
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [_email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+
+  const sendEmail = () => {
+    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent('From portfolio')}&body=${encodeURIComponent(message)}`;
+    window.location.href = mailtoLink;
+  };
+  
   return (
     <>
       <FormStyle>
@@ -63,9 +72,9 @@ export default function ContactForm() {
             Your Email
             <input
               type="email"
-              id="email"
-              name="email"
-              value={email}
+              id="_email"
+              name="_email"
+              value={_email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </label>
@@ -82,7 +91,7 @@ export default function ContactForm() {
             />
           </label>
         </div>
-        <button type="submit">Send</button>
+        <button type="submit" onClick={sendEmail}>Send</button>
       </FormStyle>
     </>
   );

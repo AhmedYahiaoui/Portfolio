@@ -52,15 +52,17 @@ const ContactSectionStyle = styled.div`
 `;
 
 export default function ContactSection() {
+  const {phone,email,location,} = window.profile;
+
   return (
     <ContactSectionStyle>
       <div className="container">
         <SectionTitle heading="contact" subheading="get in touch" />
         <div className="contactSection__wrapper">
           <div className="left">
-            <ContactInfoItem icon={<MdLocalPhone />} text="+216 50 77 90 17" />
-            <ContactInfoItem icon={<MdEmail />} text="ahmed.yahyaoui.2@esprit.tn" />
-            <ContactInfoItem text="Tunis, Tunisia" />
+            <ContactInfoItem icon={<MdLocalPhone />} text={phone} />
+            <ContactInfoItem icon={<MdEmail />} text={email} />
+            <ContactInfoItem text={location} />
           </div>
           <div className="right">
             <ContactForm />
