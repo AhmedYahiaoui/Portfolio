@@ -134,7 +134,7 @@ export default function App() {
           <Route path="/project/:id">
             <Project />
           </Route>
-          <Route path="/">
+          <Route path="/portfolio">
             <Home />
           </Route>
         </Switch>
