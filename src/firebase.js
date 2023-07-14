@@ -3,7 +3,7 @@
 // src.firebase.js
 import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
-import { getStorage, ref, listAll } from 'firebase/storage';
+import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDS8-XxgeOg8ceghBaqv9lKgZLtT72h9z8',
