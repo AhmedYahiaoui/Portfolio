@@ -1,7 +1,6 @@
 
 import React from 'react'
 import styled from 'styled-components';
-import HeroImg from '../assets/images/hero.png';
 import Button from './Button';
 import SocialMediaArrow from '../assets/images/social-media-arrow.svg';
 import ScrollDownArrow from '../assets/images/scroll-down-arrow.svg';
@@ -162,7 +161,7 @@ export default function HeroSection() {
             <span className="hero__name">{firstname} {lastname}</span>
           </h1>
           <div className="hero__img">
-            <img src={HeroImg} alt="" />
+            <img src={window.profile.home_first_image} alt="" />
           </div>
           <div className="hero__info">
             <div>

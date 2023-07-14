@@ -30,7 +30,6 @@ function Project() {
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(null);
 
-
   useEffect(() => {
     const fetchProjectData = async () => {
       try {

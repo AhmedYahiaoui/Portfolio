@@ -4,7 +4,6 @@ import React, {  useState } from 'react';
 import styled from 'styled-components';
 import PText from '../components/PText';
 import Button from '../components/Button';
-import AboutImg from '../assets/images/about-page-img.png';
 import AboutInfoItem from '../components/AboutInfoItem';
 import ContactBanner from '../components/ContactBanner';
 
@@ -76,7 +75,7 @@ const AboutPageStyles = styled.div`
 `;
 
 export default function About() {
-  const {firstname,lastname,about_me_title,about_me_p1,about_me_p2,about_me_p3,about_me_p4,cv_fr_link,cv_eng_link,}=window.profile;
+  const {firstname,lastname,about_me_title,about_me_p1,about_me_p2,about_me_p3,about_me_p4,cv_fr_link,cv_eng_link, about_me_image}=window.profile;
   const experience = window.experiences;;
   let [experiences, setExperiences] = useState([])
   
@@ -114,7 +113,7 @@ export default function About() {
               </row>
             </div>
             <div className="right">
-              <img src={AboutImg} alt="me" />
+              <img src={about_me_image} alt="me" />
             </div>
           </div>
           <div className="about__info__items">
