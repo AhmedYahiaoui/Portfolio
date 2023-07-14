@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.21781aa7.css",
-    "main.js": "/static/js/main.36e985c3.js",
+    "main.js": "/static/js/main.122211eb.js",
     "static/media/cavinimg.jpg": "/static/media/cavinimg.77adeaa3a878fa721ecc.jpg",
     "static/media/openstreetmap.png": "/static/media/openstreetmap.66fe79e3f86f284d6fc7.png",
     "static/media/javafx.png": "/static/media/javafx.77d42038803eb9874e2e.png",
@@ -27,10 +27,10 @@
     "static/media/scroll-down-arrow.svg": "/static/media/scroll-down-arrow.8ad25c53cf6a683760324d08f36d9b00.svg",
     "static/media/social-media-arrow.svg": "/static/media/social-media-arrow.ecc0133cf2e7911d4b7286c107f982ec.svg",
     "main.21781aa7.css.map": "/static/css/main.21781aa7.css.map",
-    "main.36e985c3.js.map": "/static/js/main.36e985c3.js.map"
+    "main.122211eb.js.map": "/static/js/main.122211eb.js.map"
   },
   "entrypoints": [
     "static/css/main.21781aa7.css",
-    "static/js/main.36e985c3.js"
+    "static/js/main.122211eb.js"
   ]
 }
